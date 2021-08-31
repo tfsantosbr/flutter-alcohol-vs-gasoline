@@ -1,5 +1,8 @@
 import 'package:alcohol_vs_gasoline/widgets/input.widget.dart';
+import 'package:alcohol_vs_gasoline/widgets/loading-button.widget.dart';
 import 'package:alcohol_vs_gasoline/widgets/logo.widget.dart';
+import 'package:alcohol_vs_gasoline/widgets/submit-form.dart';
+import 'package:alcohol_vs_gasoline/widgets/success.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
@@ -33,14 +36,15 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Logo(),
-          Input(
-            label: "Gasolina",
-            ctrl: _gasCtrl,
+          Success(
+            result: "Compensa utilizar x",
+            reset: () {},
           ),
-          Input(
-            label: "Álcool",
-            ctrl: _alcoholCtrl,
-          )
+          SubmitForm(
+              gasCtrl: _gasCtrl,
+              alcoholCtrl: _alcoholCtrl,
+              busy: false,
+              submitFunc: () {})
         ],
       ),
     );
